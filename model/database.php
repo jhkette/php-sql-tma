@@ -48,6 +48,26 @@ class getdata extends db
             return $data;
         }
     }
+
+    protected function getArtists(){
+        $sql ="SELECT name, COUNT(title) AS number 
+        FROM artist
+        JOIN song
+        ON song.artist_id = artist.id
+        GROUP by name";
+        $results = $this->connect()->query($sql);
+        $numRows = $results;
+        if ($numRows === false) {
+            echo 'error';
+        } else {
+            // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
+            while ($row = $results->fetch_assoc()) {
+                $data[] = $row;
+            }
+            mysqli_free_result($results);
+            return $data;
+        }
+    }
 }
 
 ?>

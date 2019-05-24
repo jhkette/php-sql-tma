@@ -4,27 +4,27 @@ require_once './model/database.php';
 
 class displayData extends getdata
 {
-    // public $datas;
-    // public function __construct (){
-    //     $this->data = $data;
-    // }
-  
+   
 
     protected function showAllSongs()
     {
-        $datas = $this->getAllSongs();
+        $data = $this-> getAllSongs();
+        // print_r($datas);
         $content ='';
+        $header = './templates/header.html';
+        $content .= file_get_contents($header);
         $file = './templates/list.html';
         $tpl = file_get_contents($file);
-        foreach ($datas as $data) {
+        foreach ($data as $info) {
            
-            $pass1 = str_replace('[+title+]', $data['title'], $tpl);
-            $pass2 = str_replace('[+name+]', $data['name'], $pass1);
-            $final = str_replace('[+duration+]', $data['duration'], $pass2);  
+            $pass1 = str_replace('[+title+]', htmlentities($info['title']), $tpl);
+            $pass2 = str_replace('[+name+]', htmlentities($info['name']), $pass1);
+            $final = str_replace('[+duration+]', htmlentities($info['duration']), $pass2);  
             $content .= $final;
         }
         
-
+        $footer = './templates/footer.html';
+        $content .= file_get_contents($footer);
         return $content;
     }
 

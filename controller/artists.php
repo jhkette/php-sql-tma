@@ -1,6 +1,6 @@
 <?php
 require_once './model/database.php';
-class displayArtists extends getdata
+class Artists extends getdata
 {
  
 

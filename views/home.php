@@ -8,7 +8,7 @@ require_once './controller/songs.php';
 
 <?php 
 
-$books = new displayData;
+$books = new Songs;
 $books -> displayHtml();
 
 ?>

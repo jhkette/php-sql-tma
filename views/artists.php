@@ -8,7 +8,7 @@ require_once './controller/artists.php';
 
 <?php 
 
-$books = new displayArtists;
-$books -> displayHtml();
+$artists = new Artists;
+$artists -> displayHtml();
 
 ?>

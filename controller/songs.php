@@ -2,14 +2,13 @@
 require_once './model/database.php';
 
 
-class displayData extends getdata
+class Songs extends getdata
 {
    
 
     protected function showAllSongs()
     {
         $data = $this-> getAllSongs();
-        // print_r($datas);
         $content ='';
         $header = './templates/header.html';
         $content .= file_get_contents($header);

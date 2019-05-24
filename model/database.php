@@ -50,7 +50,4 @@ class getdata extends db
     }
 }
 
-
-
-
 ?>

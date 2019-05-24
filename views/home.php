@@ -1,7 +1,10 @@
-<?php 
-require('includes/config.php');
-require('includes/functions.php');
+<?php
+
+
+require_once './includes/config.php';
+require_once './controller/songs.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,12 @@ require('includes/functions.php');
     <title>Document</title>
 </head>
 <body>
-    
+<?php 
+
+$books = new displayData;
+$books -> displayHtml();
+
+?>
 </body>
 </html>
 

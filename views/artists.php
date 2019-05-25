@@ -2,13 +2,13 @@
 
 
 require_once './includes/config.php';
-require_once './controller/artists.php';
+require_once './controller/songs.php';
 ?>
 
 
 <?php 
 
-$artists = new Artists;
-$artists -> displayHtml();
+$artists = new Songs;
+$artists -> displayArtistHtml();
 
 ?>

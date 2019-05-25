@@ -15,7 +15,10 @@ if (!isset($_GET['page'])) {
 	case 'home' :
 	include 'views/home.php';
 	break;
-	case 'artists' :
+	case 'songs' :
+	include 'views/songs.php';
+	 break;
+	 case 'artists' :
 	include 'views/artists.php';
     break;
    }

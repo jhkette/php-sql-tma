@@ -9,7 +9,7 @@ require_once './controller/songs.php';
 <?php 
 
 $books = new Songs;
-$books -> displayIndex();
+$books -> displaySongHtml();
 
 ?>
 

@@ -1,5 +1,6 @@
 <?php
 require_once './model/database.php';
+require_once './includes/functions.php';
 
 class Controller extends getdata
 {
@@ -19,7 +20,7 @@ class Controller extends getdata
         return $content;
     }
 
-    
+
     protected function getSongArtistCount()
     {
         $datas = $this->getCount();
@@ -47,7 +48,7 @@ class Controller extends getdata
         foreach ($data as $info) {
             $pass1 = str_replace('[+title+]', htmlentities($info['title']), $tpl);
             $pass2 = str_replace('[+name+]', htmlentities($info['name']),$pass1);
-            $final = str_replace('[+duration+]', htmlentities($info['duration']),$pass2);
+            $final = str_replace('[+duration+]', htmlentities(gmdate("i:s",($info['duration']))),$pass2);
             $content .= $final;
         }
 

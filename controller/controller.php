@@ -28,11 +28,14 @@ class Controller extends getdata
         $file = './templates/countlist.html';
 
         $tpl = file_get_contents($file);
-        foreach ($datas as $data) {
-            $pass1 = str_replace('[+song+]', htmlentities($data['name']), $tpl);
-            $final = str_replace('[+artist+]',htmlentities($data['song']), $pass1);
-            $content .= $final;
+
+        $values =['[+song+]', '[+artist+]'];
+        $input = [];
+        foreach ($datas as $key => $data) {
+           $input = $data;
         }
+        $content = printTemplate($values, $input, $tpl);
+
         return $content;
     }
 

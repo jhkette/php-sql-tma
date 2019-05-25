@@ -30,30 +30,25 @@ class Controller extends getdata
         $tpl = file_get_contents($file);
 
         $values =['[+song+]', '[+artist+]'];
-        $input = [];
-        foreach ($datas as $key => $data) {
-           $input = $data;
-        }
-        $content = printTemplate($values, $input, $tpl);
+    
+        $content = printTemplateArray($values, $datas, $tpl);
 
         return $content;
     }
 
     protected function showAllSongs()
     {
-        $data = $this->getAllSongs();
+        $datas = $this->getAllSongs();
+    
         $content = '';
         $header = './templates/header.html';
         $content .= file_get_contents($header);
         $content .= $this->getSongArtistCount();
         $file = './templates/list.html';
         $tpl = file_get_contents($file);
-        foreach ($data as $info) {
-            $pass1 = str_replace('[+title+]', htmlentities($info['title']), $tpl);
-            $pass2 = str_replace('[+name+]', htmlentities($info['name']),$pass1);
-            $final = str_replace('[+duration+]', htmlentities(gmdate("i:s",($info['duration']))),$pass2);
-            $content .= $final;
-        }
+        $values = ['[+title+]', '[+name+]', '[+duration+]'];
+      
+        $content .= printTemplateArray($values, $datas, $tpl);
 
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);

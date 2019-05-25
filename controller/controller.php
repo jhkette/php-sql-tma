@@ -1,7 +1,7 @@
 <?php
 require_once './model/database.php';
 
-class Songs extends getdata
+class Controller extends getdata
 {
 
 
@@ -11,12 +11,15 @@ class Songs extends getdata
         $header = './templates/header.html';
         $content .= file_get_contents($header);
         $content .= $this->getSongArtistCount();
+        $lorem = './templates/lorem.html';
+        $content .= file_get_contents($lorem);
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);
 
         return $content;
-
     }
+
+    
     protected function getSongArtistCount()
     {
         $datas = $this->getCount();

@@ -1,9 +1,9 @@
 <?php 
 
-$config['db_host'] = 'mysqlsrv.dcs.bbk.ac.uk';
-$config['db_name'] = 'jkette01db';
-$config['db_user'] = 'jkette01';
-$config['db_pass'] = 'bbkmysql';
+define('DB_HOST', 'mysqlsrv.dcs.bbk.ac.uk');
+define('DB_NAME', 'jkette01db' );
+define('DB_USER', 'jkette01'); 
+define('DB_PASS', 'bbkmysql'); 
 
 /**
  * Set the default timezone as we are using some date/time functions and the

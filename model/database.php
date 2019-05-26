@@ -9,11 +9,12 @@ class db
     private $db;
 
     protected function connect()
+ 
     {
-        $this->host = 'mysqlsrv.dcs.bbk.ac.uk';
-        $this->username = 'jkette01';
-        $this->password = 'bbkmysql';
-        $this->db = 'jkette01db';
+        $this->host = DB_HOST;
+        $this->username = DB_USER;
+        $this->password = DB_PASS;
+        $this->db = DB_NAME;
 
         $conn = new mysqli(
             $this->host,

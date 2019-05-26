@@ -9,21 +9,24 @@ class db
     private $db;
 
     protected function connect()
- 
     {
         $this->host = DB_HOST;
         $this->username = DB_USER;
         $this->password = DB_PASS;
         $this->db = DB_NAME;
+        try {
+            $conn = new mysqli(
+                $this->host,
+                $this->username,
+                $this->password,
+                $this->db
+            );
 
-        $conn = new mysqli(
-            $this->host,
-            $this->username,
-            $this->password,
-            $this->db
-        );
-
-        return $conn;
+            return $conn;
+        } catch (Exception $e) {
+           $error = $e->errorMessage();
+           echo $error . $lang['error_db']; 
+        }
     }
 }
 
@@ -50,8 +53,9 @@ class getdata extends db
         }
     }
 
-    protected function getArtists(){
-        $sql ="SELECT name, COUNT(title) AS number 
+    protected function getArtists()
+    {
+        $sql = "SELECT name, COUNT(title) AS number 
         FROM artist
         JOIN song
         ON song.artist_id = artist.id
@@ -70,8 +74,9 @@ class getdata extends db
         }
     }
 
-    protected function getCount(){
-        $sql ="SELECT COUNT(name) AS name, COUNT(song.id) AS song
+    protected function getCount()
+    {
+        $sql = "SELECT COUNT(name) AS name, COUNT(song.id) AS song
         FROM artist
         LEFT JOIN song
         ON song.artist_id = artist.id";

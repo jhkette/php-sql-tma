@@ -12,5 +12,9 @@ define('DB_PASS', 'bbkmysql');
  */
 date_default_timezone_set('Europe/London');
 
+/* Set defualt language */
+$config['language'] = 'en';
+
+require 'lang/'. $config['language'] .'.php';
 
 ?>

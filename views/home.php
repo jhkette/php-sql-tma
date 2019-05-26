@@ -6,8 +6,8 @@ require_once './controller/controller.php';
 
 <?php 
 
-$books = new Controller;
-$books -> displayIndex();
+$home = new Controller;
+$home -> displayIndex();
 
 ?>
 

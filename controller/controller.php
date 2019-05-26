@@ -5,7 +5,7 @@ require_once './includes/functions.php';
 class Controller extends getdata
 {
 
-
+    // Function to get index page information
     protected function getIndex()
     {
         $content = '';
@@ -20,17 +20,28 @@ class Controller extends getdata
         return $content;
     }
 
+    protected function get404()
+    {
+        $content = '';
+        $header = './templates/header.html';
+        $content .= file_get_contents($header);
+        $content .= $this->getSongArtistCount();
+        $lorem = './templates/404.html';
+        $content .= file_get_contents($lorem);
+        $footer = './templates/footer.html';
+        $content .= file_get_contents($footer);
 
+        return $content;
+    }
+
+     // Function to get index page information
     protected function getSongArtistCount()
     {
         $datas = $this->getCount();
         $content = '';
         $file = './templates/countlist.html';
-
         $tpl = file_get_contents($file);
-
         $values =['[+song+]', '[+artist+]'];
-    
         $content = printTemplateArray($values, $datas, $tpl);
 
         return $content;
@@ -39,7 +50,6 @@ class Controller extends getdata
     protected function showAllSongs()
     {
         $datas = $this->getAllSongs();
-    
         $content = '';
         $header = './templates/header.html';
         $content .= file_get_contents($header);
@@ -47,9 +57,8 @@ class Controller extends getdata
         $file = './templates/list.html';
         $tpl = file_get_contents($file);
         $values = ['[+title+]', '[+name+]', '[+duration+]'];
-      
-        $content .= printTemplateArray($values, $datas, $tpl);
-
+        $song = true;
+        $content .= printTemplateArray($values, $datas, $tpl, $song);
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);
         return $content;
@@ -89,6 +98,11 @@ class Controller extends getdata
 
     public function displayIndex(){
         $content = $this->getIndex();
+        echo $content;
+
+    }
+    public function display404(){
+        $content = $this->get404();
         echo $content;
 
     }

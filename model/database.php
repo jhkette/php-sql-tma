@@ -7,26 +7,32 @@ class db
     private $username;
     private $password;
     private $db;
+   
 
     protected function connect()
     {
+      
         $this->host = DB_HOST;
         $this->username = DB_USER;
         $this->password = DB_PASS;
         $this->db = DB_NAME;
+        
         try {
-            $conn = new mysqli(
-                $this->host,
-                $this->username,
-                $this->password,
-                $this->db
-            );
-
-            return $conn;
-        } catch (Exception $e) {
-           $error = $e->errorMessage();
-           echo $error . $lang['error_db']; 
-        }
+        $conn = new mysqli(
+            $this->host,
+            $this->username,
+            $this->password,
+            $this->db
+        );
+        return $conn;
+    }
+    catch (mysqli_sql_exception $ex) {
+        throw new Exception("Can't connect to the database! \n" . $ex);
+    }
+        
+        
+       
+       
     }
 }
 
@@ -40,8 +46,8 @@ class getdata extends db
         ON song.artist_id = artist.id
         ORDER by artist.name, song.title ASC";
         $results = $this->connect()->query($sql);
-        $numRows = $results;
-        if ($numRows === false) {
+       
+        if ($results === false) {
             echo 'error';
         } else {
             // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
@@ -61,8 +67,8 @@ class getdata extends db
         ON song.artist_id = artist.id
         GROUP by name";
         $results = $this->connect()->query($sql);
-        $numRows = $results;
-        if ($numRows === false) {
+       
+        if ($results === false) {
             echo 'error';
         } else {
             // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
@@ -81,8 +87,8 @@ class getdata extends db
         LEFT JOIN song
         ON song.artist_id = artist.id";
         $results = $this->connect()->query($sql);
-        $numRows = $results;
-        if ($numRows === false) {
+       
+        if ($results === false) {
             echo 'error';
         } else {
             // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows

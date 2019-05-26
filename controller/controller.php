@@ -66,11 +66,9 @@ class Controller extends getdata
         $file = './templates/artistlist.html';
 
         $tpl = file_get_contents($file);
-        foreach ($datas as $data) {
-            $pass1 = str_replace('[+artist+]', htmlentities($data['name']),$tpl);
-            $final = str_replace('[+count+]', htmlentities($data['number']),$pass1);
-            $content .= $final;
-        }
+        $values = ['[+artist+]', '[+count+]'];
+        $content .= printTemplateArray($values, $datas, $tpl);
+       
 
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);

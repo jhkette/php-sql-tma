@@ -2,7 +2,7 @@
 require_once './model/database.php';
 require_once './includes/functions.php';
 
-class Controller extends getdata
+class Controller extends SongsArtistsData
 {
 
     // Function to get index page information
@@ -105,7 +105,6 @@ class Controller extends getdata
     public function display404(){
         $content = $this->get404();
         echo $content;
-
     }
 }
 

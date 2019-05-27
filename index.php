@@ -1,6 +1,6 @@
 <?php
 require_once './includes/config.php';
-require_once './lang/en.php';
+require_once './lang/'.$lang['language'].'.php';
 require_once './controller/controller.php';
 
 

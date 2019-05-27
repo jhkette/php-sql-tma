@@ -16,7 +16,9 @@ date_default_timezone_set('Europe/London');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 /* Set defualt language */
-define('language', 'en');
+$lang = array(
+    "language" => "en"
+);
 
 
 

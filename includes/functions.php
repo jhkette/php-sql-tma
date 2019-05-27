@@ -2,7 +2,6 @@
 /* HELPER FUNCTIONS */
 
 
-// chamnge to two functions.
 
 function printTemplateArray($values, $replacements, $file){
   
@@ -18,7 +17,7 @@ function printTemplateArray($values, $replacements, $file){
 }
 
 function changeTime($replacements){
-    // Song needs to be handled seperately to change duration key in array. 
+
     $newArray;
  
     foreach($replacements as $key => $replacement) {

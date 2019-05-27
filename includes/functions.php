@@ -2,10 +2,10 @@
 /* HELPER FUNCTIONS */
 
 
+// chamnge to two functions.
 
-
-function printTemplateArray($values, $replacements, $file, $song = false){
-    if(!$song){
+function printTemplateArray($values, $replacements, $file){
+  
     $new_message = '';
  
     foreach($replacements as $key => $replacement) {
@@ -14,18 +14,22 @@ function printTemplateArray($values, $replacements, $file, $song = false){
         $new_message .= str_replace($values, $replacement, $file);
     }
     return $new_message;
-}
-else{
-    $new_message = '';
- 
-    foreach($replacements as $key => $replacement) {
-        $replacement['duration'] = gmdate("i:s", $replacement['duration']);
-        $replacement = array_map('htmlentities', $replacement);
-        $new_message .= str_replace($values, $replacement, $file);
-    }
-    return $new_message;
 
 }
+
+function changeTime($replacements){
+    // Song needs to be handled seperately to change duration key in array. 
+    $newArray;
+ 
+    foreach($replacements as $key => $replacement) {
+        // change duration to mm:ss time format
+        $replacement['duration'] = gmdate("i:s", $replacement['duration']);
+        $newArray [] = $replacement;
+       
+    }
+    return $newArray;
+
+
 }
      
 

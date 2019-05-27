@@ -1,6 +1,5 @@
 <?php
 require_once './includes/config.php';
-
 class db
 {
     private $host;
@@ -8,7 +7,6 @@ class db
     private $password;
     private $db;
    
-
     protected function connect()
     {
       
@@ -35,7 +33,6 @@ class db
        
     }
 }
-
 class getdata extends db
 {
     protected function getAllSongs()
@@ -58,7 +55,6 @@ class getdata extends db
             return $data;
         }
     }
-
     protected function getArtists()
     {
         $sql = "SELECT name, COUNT(title) AS number 
@@ -79,7 +75,6 @@ class getdata extends db
             return $data;
         }
     }
-
     protected function getCount()
     {
         $sql = "SELECT COUNT(name) AS name, COUNT(song.id) AS song
@@ -100,5 +95,4 @@ class getdata extends db
         }
     }
 }
-
 ?>

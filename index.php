@@ -1,6 +1,8 @@
 <?php
 require_once './includes/config.php';
 
+
+
 // Code to detect whether index.php has been requested without query string goes here
 
 $content = '';

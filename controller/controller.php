@@ -57,8 +57,9 @@ class Controller extends getdata
         $file = './templates/list.html';
         $tpl = file_get_contents($file);
         $values = ['[+title+]', '[+name+]', '[+duration+]'];
-        $song = true;
-        $content .= printTemplateArray($values, $datas, $tpl, $song);
+      
+        $newData = changeTime($datas);
+        $content .= printTemplateArray($values, $newData, $tpl);
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);
         return $content;

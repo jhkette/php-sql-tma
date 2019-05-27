@@ -2,7 +2,7 @@
 
 define('DB_HOST', 'mysqlsrv.dcs.bbk.ac.uk');
 define('DB_NAME', 'jkette01db' );
-define('DB_USER', 'jkette012'); 
+define('DB_USER', 'jkette01'); 
 define('DB_PASS', 'bbkmysql'); 
 
 /**
@@ -16,8 +16,8 @@ date_default_timezone_set('Europe/London');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 /* Set defualt language */
-$config['language'] = 'en';
+define('language', 'en');
 
-require 'lang/'. $config['language'] .'.php';
+
 
 ?>

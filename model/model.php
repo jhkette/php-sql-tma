@@ -3,7 +3,7 @@ require_once './includes/config.php';
 require_once './database/database.php';
 
 
-class SongsArtistsData extends Database
+class Model extends Database
 {
     protected function getAllSongs()
     {
@@ -55,7 +55,7 @@ class SongsArtistsData extends Database
         $sql = "SELECT  COUNT(artist.id) AS artists, COUNT(song.id) as songs
         FROM artist
         RIGHT JOIN song
-        ON (artist.id = song.id)";
+        ON artist.id = song.id";
         $data;
         $results = $this->connect()->query($sql);
 

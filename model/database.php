@@ -18,7 +18,7 @@ class SongsArtistsData extends Database
         if ($results === false) {
             echo $this->errors['error_data'];
         } else {
-            // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
+            
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }
@@ -40,7 +40,7 @@ class SongsArtistsData extends Database
         if ($results === false) {
             echo $this->errors['error_data'];
         } else {
-            // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
+           
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }
@@ -60,7 +60,6 @@ class SongsArtistsData extends Database
         if ($results === false) {
             echo errors['error_data'];;
         } else {
-            // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }

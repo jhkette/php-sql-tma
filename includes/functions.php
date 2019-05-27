@@ -1,8 +1,6 @@
 <?php 
 /* HELPER FUNCTIONS */
 
-
-
 function printTemplateArray($values, $replacements, $file){
   
     $new_message = '';
@@ -19,16 +17,12 @@ function printTemplateArray($values, $replacements, $file){
 function changeTime($replacements){
 
     $newArray;
- 
     foreach($replacements as $key => $replacement) {
         // change duration to mm:ss time format
         $replacement['duration'] = gmdate("i:s", $replacement['duration']);
-        $newArray [] = $replacement;
-       
+        $newArray [] = $replacement;     
     }
     return $newArray;
-
-
 }
      
 

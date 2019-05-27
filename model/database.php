@@ -6,31 +6,30 @@ class db
     private $username;
     private $password;
     private $db;
-   
+    protected $errors;
+
+    public function __construct($errors){
+       $this->errors = $errors;
+    }
+
     protected function connect()
     {
-      
         $this->host = DB_HOST;
         $this->username = DB_USER;
         $this->password = DB_PASS;
         $this->db = DB_NAME;
-        
+
         try {
-        $conn = new mysqli(
-            $this->host,
-            $this->username,
-            $this->password,
-            $this->db
-        );
-        return $conn;
-    }
-    catch (mysqli_sql_exception $ex) {
-        throw new Exception("Can't connect to the database! \n" . $ex);
-    }
-        
-        
-       
-       
+            $conn = new mysqli(
+                $this->host,
+                $this->username,
+                $this->password,
+                $this->db
+            );
+            return $conn;
+        } catch (mysqli_sql_exception $ex) {
+            throw new Exception( $lang['error_db'] . $ex);
+        }
     }
 }
 class getdata extends db
@@ -42,8 +41,9 @@ class getdata extends db
         JOIN artist
         ON song.artist_id = artist.id
         ORDER by artist.name, song.title ASC";
+        $data;
         $results = $this->connect()->query($sql);
-       
+
         if ($results === false) {
             echo 'error';
         } else {
@@ -62,8 +62,9 @@ class getdata extends db
         JOIN song
         ON song.artist_id = artist.id
         GROUP by name";
+        $data;
         $results = $this->connect()->query($sql);
-       
+
         if ($results === false) {
             echo 'error';
         } else {
@@ -81,8 +82,9 @@ class getdata extends db
         FROM artist
         LEFT JOIN song
         ON song.artist_id = artist.id";
+         $data;
         $results = $this->connect()->query($sql);
-       
+
         if ($results === false) {
             echo 'error';
         } else {

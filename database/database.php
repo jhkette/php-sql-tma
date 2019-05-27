@@ -1,7 +1,11 @@
 <?php
-/* This class connects to the database. The errors in the appropriate language are passed into 
+/* 
+This class connects to the database. The errors in the appropriate language are passed into 
 the __construct function when the class is instantitated. They are also accessible in the model and controller class 
-- as they extend the database class. I'm using a try, catch block to connect and 'catch' exceptions if there are any. 
+- as they are sub classes of the database class. I'm creating a connection to the database in this class. 
+It can then be accessed using the protected connect() method in the model class, an extension of the Database class. 
+
+I'm using a try, catch block to connect and 'catch' exceptions if there are any. 
 */
 class Database
 {
@@ -11,7 +15,7 @@ class Database
     private $db;
     protected $errors;
     
-
+    // 
     public function __construct($errors)
     {
         $this->errors = $errors; 

@@ -2,7 +2,7 @@
 
 define('DB_HOST', 'mysqlsrv.dcs.bbk.ac.uk');
 define('DB_NAME', 'jkette01db' );
-define('DB_USER', 'jkette01'); 
+define('DB_USER', 'jkette012'); 
 define('DB_PASS', 'bbkmysql'); 
 
 /**

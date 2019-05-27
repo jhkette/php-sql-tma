@@ -1,24 +1,28 @@
 <?php
 require_once './includes/config.php';
-class db
+class Db
 {
     private $host;
     private $username;
     private $password;
     private $db;
     protected $errors;
+    
 
-    public function __construct($errors){
-       $this->errors = $errors;
+    public function __construct($errors)
+    {
+        $this->errors = $errors;
+      
     }
 
     protected function connect()
-    {
+    {   
+       
         $this->host = DB_HOST;
         $this->username = DB_USER;
         $this->password = DB_PASS;
         $this->db = DB_NAME;
-
+       
         try {
             $conn = new mysqli(
                 $this->host,
@@ -26,13 +30,18 @@ class db
                 $this->password,
                 $this->db
             );
+
             return $conn;
         } catch (mysqli_sql_exception $ex) {
-            throw new Exception( $lang['error_db'] . $ex);
+            echo $this->errors['error_db'];
+            throw new Exception($ex);
+            $ex -> getMessage();
+            // exit as application does not work without db connection. 
+            exit();
         }
     }
 }
-class getdata extends db
+class getdata extends Db
 {
     protected function getAllSongs()
     {
@@ -45,13 +54,14 @@ class getdata extends db
         $results = $this->connect()->query($sql);
 
         if ($results === false) {
-            echo 'error';
+            echo $this->errors['error_data'];
         } else {
             // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }
             mysqli_free_result($results);
+            
             return $data;
         }
     }
@@ -66,7 +76,7 @@ class getdata extends db
         $results = $this->connect()->query($sql);
 
         if ($results === false) {
-            echo 'error';
+            echo $this->errors['error_data'];
         } else {
             // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
             while ($row = $results->fetch_assoc()) {
@@ -82,11 +92,11 @@ class getdata extends db
         FROM artist
         LEFT JOIN song
         ON song.artist_id = artist.id";
-         $data;
+        $data;
         $results = $this->connect()->query($sql);
 
         if ($results === false) {
-            echo 'error';
+            echo errors['error_data'];;
         } else {
             // result object has methods, e.g. fetch_assoc // and properties, e.g. num_rows
             while ($row = $results->fetch_assoc()) {

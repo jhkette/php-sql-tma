@@ -1,9 +1,7 @@
-
-
-<?php 
+<?php
 
 $songs = new Controller($errors);
-$songs -> displaySongHtml();
+$songs->displaySongHtml();
 
 ?>
 

@@ -1,5 +1,8 @@
 <?php
-
+/* This class connects to the database. The errors in the appropriate language are passed into 
+the __construct function when the class is instantitated. They are also accessible in the model and controller class 
+- as they extend the database class. I'm using a try, catch block to connect and 'catch' exceptions if there are any. 
+*/
 class Database
 {
     private $host;
@@ -16,7 +19,6 @@ class Database
 
     protected function connect()
     {   
-       
         $this->host = DB_HOST;
         $this->username = DB_USER;
         $this->password = DB_PASS;
@@ -35,7 +37,6 @@ class Database
             echo $this->errors['error_db'];
             throw new Exception($ex);
             $ex -> getMessage();
-            // exit as application does not work without db connection. 
             exit();
         }
     }

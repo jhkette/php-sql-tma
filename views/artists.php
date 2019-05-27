@@ -1,8 +1,7 @@
-
-
-<?php 
+<?php
 
 $artists = new Controller($errors);
-$artists -> displayArtistHtml();
+$artists->displayArtistHtml();
+
 
 ?>

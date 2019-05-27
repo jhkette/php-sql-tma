@@ -1,14 +1,7 @@
-
-
-<?php 
-
-
+<?php
 
 $home = new Controller($errors);
-$home -> displayIndex();
-
-
-
+$home->displayIndex();
 
 ?>
 

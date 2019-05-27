@@ -48,12 +48,14 @@ class SongsArtistsData extends Database
             return $data;
         }
     }
+
+
     protected function getCount()
-    {
-        $sql = "SELECT COUNT(name) AS name, COUNT(song.id) AS song
+    {   
+        $sql = "SELECT  COUNT(artist.id) AS artists, COUNT(song.id) as songs
         FROM artist
-        LEFT JOIN song
-        ON song.artist_id = artist.id";
+        RIGHT JOIN song
+        ON (artist.id = song.id)";
         $data;
         $results = $this->connect()->query($sql);
 

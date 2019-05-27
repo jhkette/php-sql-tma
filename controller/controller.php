@@ -1,10 +1,9 @@
 <?php
-require_once './model/database.php';
+require_once './model/model.php';
 require_once './includes/functions.php';
 
 class Controller extends SongsArtistsData
 {
-
     // Function to get index page information
     protected function getIndex()
     {
@@ -41,7 +40,7 @@ class Controller extends SongsArtistsData
         $content = '';
         $file = './templates/countlist.html';
         $tpl = file_get_contents($file);
-        $values =['[+song+]', '[+artist+]'];
+        $values =[ '[+artist+]', '[+song+]'];
         $content = printTemplateArray($values, $datas, $tpl);
 
         return $content;

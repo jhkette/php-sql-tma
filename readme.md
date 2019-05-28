@@ -5,7 +5,7 @@
 Author: Joseph Ketterer
 
 Before deploying...
-readme
+
 1. Change values defined in “includes/config.inc.php” to match current environment.
 
 2. Create a database with a 'song' table with id(auto-increment PK) title(varchar) artist_id(integer - Foriegn key) and duration (integer)

@@ -27,7 +27,7 @@ class Controller extends Model
     }
   
 
-     // Function to get song artist count information
+     // Function to get song artist count information - displayed on each page
     protected function getSongArtistCount()
     {
         $datas = $this->getCount();
@@ -39,7 +39,7 @@ class Controller extends Model
 
         return $content;
     }
-
+    // Function to show all songs 
     protected function showAllSongs()
     {
         $datas = $this->getAllSongs();

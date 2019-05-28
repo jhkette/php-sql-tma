@@ -8,6 +8,8 @@ function printTemplateArray($values, $replacements, $file){
     $new_message = '';
  
     foreach($replacements as $replacement) {
+        // Data from the DB comes as an array of arrays. If replacments is an array it needs to be escaped - as it from the db.
+        //  Also need to use concatenation assignment operator to assign data to $new_message
         if(is_array ($replacement)){
         /* I'm using array_map here to create a new 'escaped' array of database values */
         $replacement = array_map('htmlentities', $replacement);

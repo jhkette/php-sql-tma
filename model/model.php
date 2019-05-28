@@ -7,6 +7,7 @@ retrieve the relevant data.  */
 
 class Model extends Database
 {
+    // get all songs in db with artist name and duration
     protected function getAllSongs()
     {
         $sql = "SELECT title, name, duration
@@ -29,6 +30,7 @@ class Model extends Database
             return $data;
         }
     }
+    // get all artists with name and count title
     protected function getArtists()
     {
         $sql = "SELECT name, COUNT(title) AS number 
@@ -51,7 +53,7 @@ class Model extends Database
         }
     }
 
-
+    // get number of songs and artists. Use right join to ensure null values in artist remain in table. 
     protected function getCount()
     {   
         $sql = "SELECT  COUNT(artist.id) AS artists, COUNT(song.id) as songs

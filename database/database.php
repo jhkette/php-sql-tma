@@ -15,12 +15,12 @@ class Database
     private $db;
     protected $errors;
     
-    // 
+    // contruct function takes errors as parameter
     public function __construct($errors)
     {
         $this->errors = $errors; 
     }
-
+    // connect function
     protected function connect()
     {   
         $this->host = DB_HOST;

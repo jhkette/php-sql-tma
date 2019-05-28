@@ -16,6 +16,7 @@ function printTemplateArray($values, $replacements, $file){
         $new_message .= str_replace($values, $replacement, $file);
         }
         else{
+            $replacement = htmlentities($replacement);
             $new_message = str_replace($values, $replacement, $file);
         }
     }

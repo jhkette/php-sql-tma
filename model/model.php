@@ -2,6 +2,8 @@
 require_once './includes/config.php';
 require_once './database/database.php';
 
+/*Model class is a sub class of the database. The controller calls the methods in the Model class to connect to the database and
+retrieve the relevant data.  */
 
 class Model extends Database
 {

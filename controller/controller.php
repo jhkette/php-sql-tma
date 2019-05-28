@@ -2,6 +2,9 @@
 require_once './model/model.php';
 require_once './includes/functions.php';
 
+/* The controller fetches data from the model and html from template files and stores it in a variable - content. 
+These are then displayed in the 'views'. */
+
 class Controller extends Model
 {
     // Function to get index page information
@@ -22,7 +25,7 @@ class Controller extends Model
 
         return $content;
     }
-
+    // Function to get 404 page information
     protected function get404()
     {
         $headerhtml = './templates/header.html';
@@ -40,7 +43,7 @@ class Controller extends Model
         return $content;
     }
 
-     // Function to get index page information
+     // Function to get song artist count information
     protected function getSongArtistCount()
     {
         $datas = $this->getCount();

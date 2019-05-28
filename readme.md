@@ -1,6 +1,7 @@
-#README#
+#README
 
-##W1 MUSIC##
+##W1 MUSIC
+
 Author: Joseph Ketterer
 Before deploying...
 1. Change values defined in “includes/config.inc.php” to match current environment.

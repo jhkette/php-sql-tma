@@ -1,6 +1,6 @@
-#README
+# README
 
-##W1 MUSIC
+## W1 MUSIC
 
 Author: Joseph Ketterer
 Before deploying...

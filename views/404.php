@@ -1,5 +1,5 @@
 <?php
-//  404 views
+//  404 view
 $notfound = new Controller($language, $config);
 $notfound->display404();
 ?>

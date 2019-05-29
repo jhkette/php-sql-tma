@@ -98,15 +98,8 @@ body {
   font-size: 2rem;
   color: #1a1a1a;
 }
-.strip-black{
-  background: rgb(36, 36, 36);
-  height: 6rem;
-}
 
-.header-container {
-  width: 80%;
-  margin: 3rem auto;
-}
+/* typography */
 h1 {
   font-family: "Oswald", sans-serif;
   text-shadow: 2px 2px 0 #6fd1bd;
@@ -142,8 +135,43 @@ h2:after {
   background-size: cover;
 }
 
+p {
+  margin: 1.5rem 0;
+}
+
 strong{
   font-weight: 900;
+}
+
+/* header elements */
+.strip-black{
+  background: rgb(36, 36, 36);
+  height: 6rem;
+}
+
+.header-container {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+
+
+
+/* navigation */
+nav {
+  margin: 3rem 0;
+}
+nav ul{
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  font-size: 2rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #1a1a1a;
 }
 
 .link{
@@ -156,7 +184,14 @@ strong{
 nav ul:first-child{
   border-left: 1px solid #1a1a1a;
 }
-
+.link.current{
+  background: #6fd1bd;
+}
+.link.current.link::before,
+.link.current.link::after{
+  background: white;
+  content: none;
+}
 
 .link::before,
 .link::after {
@@ -192,25 +227,9 @@ main {
  
 }
 
-nav {
-  margin: 3rem 0;
-}
-nav ul{
-  display: flex;
-}
 
-nav ul li {
-  display: inline-block;
-  font-size: 2rem;
-}
-nav ul li a {
-  text-decoration: none;
-  color: #1a1a1a;
-}
 
-p {
-  margin: 1rem 0;
-}
+
 
 main ul {
   margin: 0rem 0 3rem 0;

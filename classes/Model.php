@@ -1,6 +1,4 @@
 <?php
-require_once './includes/config.php';
-require_once 'Database.php';
 
 /* Model class is a sub class of the database. The controller calls the methods in the Model class to connect to the database and
  retrieve the relevant data.  */
@@ -20,7 +18,7 @@ class Model extends Database
         $results = $this->conn->query($sql);
 
         if ($results === false) {
-            echo $this->errors['error_data'];
+            echo $this->language['error_data'];
             $this->disconnect();
         } else {
             while ($row = $results->fetch_assoc()) {
@@ -44,7 +42,7 @@ class Model extends Database
         $results = $this->conn->query($sql);
 
         if ($results === false) {
-            echo $this->errors['error_data'];
+            echo $this->language['error_data'];
             $this->disconnect();
         } else {
             while ($row = $results->fetch_assoc()) {
@@ -68,7 +66,7 @@ class Model extends Database
         $results = $this->conn->query($sql);
 
         if ($results === false) {
-            echo errors['error_data'];
+            echo $this->language['error_data'];
             $this->disconnect();
         } else {
             while ($row = $results->fetch_assoc()) {

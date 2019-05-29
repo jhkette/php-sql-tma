@@ -12,10 +12,10 @@ class Controller extends Model
     {
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
-        $values = array('[+title+]', '[+heading+]');
-        $replacements = array('Home', 'Welcome');
+        $values = array('[+title+]', '[+heading+]', '[+1+]');
+        $replacements = array('Home', 'Welcome', 'current');
         $content = '';
-        $content .= printTemplateArray($values, $replacements, $header);
+        $content .= printTemplate($values, $replacements, $header);
         $content .= $this->getSongArtistCount();
         $lorem = './templates/lorem.html';
         $content .= file_get_contents($lorem);
@@ -31,7 +31,7 @@ class Controller extends Model
         $values = array('[+title+]', '[+heading+]');
         $replacements = array('404 error', '404 error');
         $content = '';
-        $content .= printTemplateArray($values, $replacements, $header);
+        $content .= printTemplate($values, $replacements, $header);
         $content .= $this->getSongArtistCount();
         $fourofour = './templates/404.html';
         $content .= file_get_contents($fourofour);
@@ -39,7 +39,6 @@ class Controller extends Model
         $content .= file_get_contents($footer);
         return $content;
     }
-
 
     // Function to get song artist count information - displayed on each page
     protected function getSongArtistCount()
@@ -60,10 +59,10 @@ class Controller extends Model
         $alldata = $this->getAllSongs();
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
-        $values = array('[+title+]', '[+heading+]');
-        $replacements = array('Songs', 'All Songs');
+        $values = array('[+title+]', '[+heading+]', '[+2+]');
+        $replacements = array('Songs', 'All Songs', 'current');
         $content = '';
-        $content .= printTemplateArray($values, $replacements, $header);
+        $content .= printTemplate($values, $replacements, $header);
 
         $content .= $this->getSongArtistCount();
         $file = './templates/songlist.html';
@@ -82,10 +81,10 @@ class Controller extends Model
         $alldata = $this->getArtists();
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
-        $values = array('[+title+]', '[+heading+]');
-        $replacements = array('Artists', 'All Artists');
+        $values = array('[+title+]', '[+heading+]', '[+3+]');
+        $replacements = array('Artists', 'All Artists', 'current');
         $content = '';
-        $content .= printTemplateArray($values, $replacements, $header);
+        $content .= printTemplate($values, $replacements, $header);
 
         $content .= $this->getSongArtistCount();
         $file = './templates/artistlist.html';
@@ -98,7 +97,7 @@ class Controller extends Model
         $content .= file_get_contents($footer);
         return $content;
     }
-    
+
     // The following functions echo the content of the above functions and are called in the relevant view
 
     public function displayIndex()
@@ -123,8 +122,6 @@ class Controller extends Model
         $content = $this->getAllArtists();
         echo $content;
     }
-
- 
 }
 
 ?>

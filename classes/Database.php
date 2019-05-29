@@ -10,13 +10,9 @@ I'm using a try, catch block to connect and 'catch' exceptions if there are any.
 class Database
 {
     private $config;
-    private $host;
-    private $username;
-    private $password;
-    private $db;
+
     protected $conn;
     protected $language;
-  
 
     // contruct function takes errors as parameter
     public function __construct($language, $config)
@@ -32,19 +28,16 @@ class Database
         $this->password = $this->config['DB_PASS'];
         $this->db = $this->config['DB_NAME'];
 
-        try {
-            $this->conn = new mysqli(
-                $this->host,
-                $this->username,
-                $this->password,
-                $this->db
-            );
-        } catch (mysqli_sql_exception $ex) {
-            echo $this->errors['error_db'];
-            throw new Exception($ex);
-            $ex->getMessage();
-            // exit - as if the DB can't connect the programme cannot run.
-            exit();
+        $this->conn = new mysqli(
+            $this->host,
+            $this->username,
+            $this->password,
+            $this->db
+        );
+
+        if ($this->conn->connect_errno) {
+            echo $this->language['error_db'];
+            exit($this->conn->connect_error);
         }
     }
 

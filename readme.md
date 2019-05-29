@@ -4,7 +4,7 @@
 
 Author: Joseph Ketterer
 
-Before deploying...
+Before deploying
 
 1. Change values defined in “includes/config.inc.php” to match current environment, inlcuding obviously database variables.
 

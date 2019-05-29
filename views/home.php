@@ -1,7 +1,7 @@
 <?php
 
 
-$home = new Controller($errors, $config);
+$home = new Controller($language, $config);
 
 $home->displayIndex();
 

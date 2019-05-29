@@ -15,13 +15,13 @@ class Database
     private $password;
     private $db;
     protected $conn;
-    protected $errors;
+    protected $language;
   
 
     // contruct function takes errors as parameter
-    public function __construct($errors, $config)
+    public function __construct($language, $config)
     {
-        $this->errors = $errors;
+        $this->language = $language;
         $this->config = $config;
     }
     // connect function

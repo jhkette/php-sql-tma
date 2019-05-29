@@ -1,4 +1,4 @@
 <?php
-$notfound = new Controller($errors, $config);
+$notfound = new Controller($language, $config);
 $notfound->display404();
 ?>

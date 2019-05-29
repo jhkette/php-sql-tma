@@ -6,7 +6,7 @@ Author: Joseph Ketterer
 
 Before deploying...
 
-1. Change values defined in “includes/config.inc.php” to match current environment.
+1. Change values defined in “includes/config.inc.php” to match current environment, inlcuding obviously database variables.
 
 2. Create a database with a 'song' table with id(auto-increment PK) title(varchar) artist_id(integer - Foriegn key) and duration (integer)
 Another table 'artist' with id(auto-increment PK) and name(varchar)

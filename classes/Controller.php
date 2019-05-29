@@ -2,15 +2,14 @@
 require_once 'Model.php';
 require_once './includes/functions.php';
 
-/* The controller fetches data from the model and html from template files and stores it in a variable - content. 
-These are then displayed in the 'views'. */
+/* The controller fetches data from the model and html from template files and stores it in a variable - content.
+ These are then displayed in the 'views'. */
 
 class Controller extends Model
 {
     // Function to get index page information
     protected function getIndex()
     {
-       
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]');
@@ -25,21 +24,20 @@ class Controller extends Model
 
         return $content;
     }
-  
 
-     // Function to get song artist count information - displayed on each page
+    // Function to get song artist count information - displayed on each page
     protected function getSongArtistCount()
     {
         $datas = $this->getCount();
         $content = '';
         $file = './templates/countlist.html';
         $tpl = file_get_contents($file);
-        $values =[ '[+artist+]', '[+song+]'];
+        $values = ['[+artist+]', '[+song+]'];
         $content = printTemplateArray($values, $datas, $tpl);
 
         return $content;
     }
-    // Function to show all songs 
+    // Function to show all songs
     protected function showAllSongs()
     {
         $datas = $this->getAllSongs();
@@ -49,12 +47,12 @@ class Controller extends Model
         $replacements = array('Songs', 'All Songs');
         $content = '';
         $content .= printTemplateArray($values, $replacements, $header);
-       
+
         $content .= $this->getSongArtistCount();
         $file = './templates/list.html';
         $tpl = file_get_contents($file);
         $values = ['[+title+]', '[+name+]', '[+duration+]'];
-      
+
         $newData = changeTime($datas);
         $content .= printTemplateArray($values, $newData, $tpl);
         $footer = './templates/footer.html';
@@ -78,7 +76,6 @@ class Controller extends Model
         $tpl = file_get_contents($file);
         $values = ['[+artist+]', '[+count+]'];
         $content .= printTemplateArray($values, $datas, $tpl);
-       
 
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);
@@ -97,12 +94,13 @@ class Controller extends Model
         echo $content;
     }
 
-    public function displayIndex(){
+    public function displayIndex()
+    {
         $content = $this->getIndex();
         echo $content;
-
     }
-    public function display404(){
+    public function display404()
+    {
         $content = $this->get404();
         echo $content;
     }

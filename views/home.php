@@ -5,7 +5,7 @@
 $home = new Controller($errors);
 
 $home->displayIndex();
-$home->disconnect();
+
 
 ?>
 

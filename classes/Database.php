@@ -15,22 +15,22 @@ class Database
     private $db;
     public $conn;
     protected $errors;
-    
+
     // contruct function takes errors as parameter
     public function __construct($errors)
     {
-        $this->errors = $errors; 
+        $this->errors = $errors;
     }
     // connect function
     public function connect()
-    {   
+    {
         $this->host = DB_HOST;
         $this->username = DB_USER;
         $this->password = DB_PASS;
         $this->db = DB_NAME;
-       
+
         try {
-           $this->conn = new mysqli(
+            $this->conn = new mysqli(
                 $this->host,
                 $this->username,
                 $this->password,
@@ -41,13 +41,16 @@ class Database
         } catch (mysqli_sql_exception $ex) {
             echo $this->errors['error_db'];
             throw new Exception($ex);
-            $ex -> getMessage();
+            $ex->getMessage();
             exit();
         }
     }
 
-    public function disconnect(){
-        $this->conn->close();
+    public function disconnect()
+    {
+        if (isset($this->conn)) {
+            $this->conn->close();
+        }
     }
 }
 ?>

@@ -43,6 +43,7 @@ class Database
             echo $this->errors['error_db'];
             throw new Exception($ex);
             $ex->getMessage();
+            // exit - as if the DB can't connect the programme cannot run.
             exit();
         }
     }

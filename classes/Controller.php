@@ -53,10 +53,11 @@ class Controller extends Model
 
         return $content;
     }
+
     // Function to show all songs
     protected function showAllSongs()
     {
-        $datas = $this->getAllSongs();
+        $alldata = $this->getAllSongs();
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]');
@@ -65,20 +66,20 @@ class Controller extends Model
         $content .= printTemplateArray($values, $replacements, $header);
 
         $content .= $this->getSongArtistCount();
-        $file = './templates/list.html';
+        $file = './templates/songlist.html';
         $tpl = file_get_contents($file);
         $values = ['[+title+]', '[+name+]', '[+duration+]'];
 
-        $newData = changeTime($datas);
+        $newData = changeTime($alldata);
         $content .= printTemplateArray($values, $newData, $tpl);
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);
         return $content;
     }
-
+    // Function to get all artists
     protected function getAllArtists()
     {
-        $datas = $this->getArtists();
+        $alldata = $this->getArtists();
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]');
@@ -91,11 +92,24 @@ class Controller extends Model
 
         $tpl = file_get_contents($file);
         $values = ['[+artist+]', '[+count+]'];
-        $content .= printTemplateArray($values, $datas, $tpl);
+        $content .= printTemplateArray($values, $alldata, $tpl);
 
         $footer = './templates/footer.html';
         $content .= file_get_contents($footer);
         return $content;
+    }
+    
+    // The following functions echo the content of the above functions and are called in the relevant view
+
+    public function displayIndex()
+    {
+        $content = $this->getIndex();
+        echo $content;
+    }
+    public function display404()
+    {
+        $content = $this->get404();
+        echo $content;
     }
 
     public function displaySongHtml()
@@ -110,16 +124,7 @@ class Controller extends Model
         echo $content;
     }
 
-    public function displayIndex()
-    {
-        $content = $this->getIndex();
-        echo $content;
-    }
-    public function display404()
-    {
-        $content = $this->get404();
-        echo $content;
-    }
+ 
 }
 
 ?>

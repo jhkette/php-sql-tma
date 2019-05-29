@@ -1,9 +1,11 @@
 <?php
-require_once 'Model.php';
 require_once './includes/functions.php';
 
 /* The controller fetches data from the model and html from template files and stores it in a variable - content.
- These are then displayed in the 'views'. */
+  I use various different templates in each function. A helper function (in includes) is used to replace values certain html elements
+  with data from the database. The data is also 'escaped' there. Finally the content is sent to the relevant view
+by a seperate function which echoes the content.  */
+ 
 
 class Controller extends Model
 {

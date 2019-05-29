@@ -103,15 +103,15 @@ body {
 h1 {
   font-family: "Oswald", sans-serif;
   text-shadow: 2px 2px 0 #6fd1bd;
-  transition: text-shadow .2s ease-in-out;
+  transition: text-shadow 0.2s ease-in-out;
   font-size: 10.5rem;
 }
 
-h1:hover{
-  text-shadow: -2px -2px 0 #FA8072;
+h1:hover {
+  text-shadow: -2px -2px 0 #fa8072;
 }
 
-.container-heading{
+.container-heading {
   display: block;
 }
 
@@ -121,16 +121,15 @@ h2 {
   margin: 3rem 0;
   position: relative;
   display: inline-block;
-  
 }
 h2:after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -0.75rem;
   left: -0.2rem;
   right: -0.5rem;
   height: 1rem;
-  background-image:  url('../images/line.svg');
+  background-image: url("../images/line.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -139,12 +138,12 @@ p {
   margin: 1.5rem 0;
 }
 
-strong{
+strong {
   font-weight: 900;
 }
 
 /* header elements */
-.strip-black{
+.strip-black {
   background: rgb(36, 36, 36);
   height: 6rem;
 }
@@ -154,14 +153,11 @@ strong{
   margin: 3rem auto;
 }
 
-
-
-
 /* navigation */
 nav {
   margin: 3rem 0;
 }
-nav ul{
+nav ul {
   display: flex;
 }
 
@@ -174,21 +170,21 @@ nav ul li a {
   color: #1a1a1a;
 }
 
-.link{
+.link {
   display: inline-block;
   position: relative;
-  padding: .8rem 1rem;
+  padding: 0.8rem 1rem;
   border-right: 1px solid #1a1a1a;
 }
 
-nav ul:first-child{
+nav ul:first-child {
   border-left: 1px solid #1a1a1a;
 }
-.link.current{
+.link.current {
   background: #6fd1bd;
 }
 .link.current.link::before,
-.link.current.link::after{
+.link.current.link::after {
   background: white;
   content: none;
 }
@@ -196,11 +192,10 @@ nav ul:first-child{
 .link::before,
 .link::after {
   background: #6fd1bd;
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   transition: all 0.3s;
- 
 }
 
 /* BUTTON 3 */
@@ -218,18 +213,12 @@ nav ul:first-child{
   width: 100%;
 }
 
-
 main {
   width: 80%;
   margin: auto;
   padding: 0 0 10rem 0;
   min-height: 95vh;
- 
 }
-
-
-
-
 
 main ul {
   margin: 0rem 0 3rem 0;
@@ -249,5 +238,4 @@ footer {
   height: 15rem;
   border-top: 1px solid #c6ced6;
   background: rgb(36, 36, 36); /* Old browsers */
-
 }

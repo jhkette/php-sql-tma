@@ -1,7 +1,8 @@
 <?php
-require_once './includes/config.php';
-require_once './lang/'.$lang['language'].'.php';
-require_once './controller/controller.php';
+require_once dirname(__FILE__).'/includes/config.php';
+require_once $config['app_dir'].'/lang/'.$lang['language'].'.php';
+require_once $config['app_dir'].'/classes/Controller.php';
+
 
 
 

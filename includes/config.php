@@ -1,10 +1,10 @@
 <?php 
 
 /* DB variables */
-define('DB_HOST', 'mysqlsrv.dcs.bbk.ac.uk');
-define('DB_NAME', 'jkette01db');
-define('DB_USER', 'jkette01'); 
-define('DB_PASS', 'bbkmysql'); 
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'test3');
+define('DB_USER', 'root'); 
+define('DB_PASS', ''); 
 
 /* Set the default timezone ;*/
 date_default_timezone_set('Europe/London');
@@ -16,7 +16,11 @@ date_default_timezone_set('Europe/London');
 // NB - this isn't supressing - errors ! Just ensuring they appear correctly.
 // http://www.nusphere.com/kb/phpmanual/function.mysqli-report.htm
 
+
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+
+$config['app_dir'] = dirname(dirname(__FILE__));
 
 /* Set defualt language */
 $lang = array(

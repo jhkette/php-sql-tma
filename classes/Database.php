@@ -13,6 +13,7 @@ class Database
     private $username;
     private $password;
     private $db;
+    public $conn;
     protected $errors;
     
     // contruct function takes errors as parameter
@@ -21,7 +22,7 @@ class Database
         $this->errors = $errors; 
     }
     // connect function
-    protected function connect()
+    public function connect()
     {   
         $this->host = DB_HOST;
         $this->username = DB_USER;
@@ -29,20 +30,24 @@ class Database
         $this->db = DB_NAME;
        
         try {
-            $conn = new mysqli(
+           $this->conn = new mysqli(
                 $this->host,
                 $this->username,
                 $this->password,
                 $this->db
             );
 
-            return $conn;
+            return "connection succeeded";
         } catch (mysqli_sql_exception $ex) {
             echo $this->errors['error_db'];
             throw new Exception($ex);
             $ex -> getMessage();
             exit();
         }
+    }
+
+    public function disconnect(){
+        $this->conn->close();
     }
 }
 ?>

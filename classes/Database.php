@@ -10,12 +10,13 @@ I'm using a try, catch block to connect and 'catch' exceptions if there are any.
 class Database
 {
     private $config;
-    protected $conn;
-    protected $errors;
     private $host;
     private $username;
     private $password;
     private $db;
+    protected $conn;
+    protected $errors;
+  
 
     // contruct function takes errors as parameter
     public function __construct($errors, $config)

@@ -24,6 +24,22 @@ class Controller extends Model
 
         return $content;
     }
+    protected function get404()
+    {
+        $headerhtml = './templates/header.html';
+        $header = file_get_contents($headerhtml);
+        $values = array('[+title+]', '[+heading+]');
+        $replacements = array('404 error', '404 error');
+        $content = '';
+        $content .= printTemplateArray($values, $replacements, $header);
+        $content .= $this->getSongArtistCount();
+        $fourofour = './templates/404.html';
+        $content .= file_get_contents($fourofour);
+        $footer = './templates/footer.html';
+        $content .= file_get_contents($footer);
+        return $content;
+    }
+
 
     // Function to get song artist count information - displayed on each page
     protected function getSongArtistCount()

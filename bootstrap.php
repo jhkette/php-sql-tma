@@ -1,9 +1,13 @@
 <?php
-include './includes/config.php';
-include './lang/'.$lang['language'].'.php';
 
+
+
+require_once './includes/config.php';
+require_once './lang/'.$lang['language'].'.php';
+
+// autoload classes
 function myAutoloader($class){
-    // Construct path to the class file include 'classes/' . $class . '.php';
+  
     require_once './classes/'.$class.'.php';
     }
     // Register the function with PHP...

@@ -24,6 +24,8 @@ switch ($id) {
     case 'artists':
         include 'views/artists.php';
         break; 
+    default:
+        include 'views/404.php';
 }
 
 ?>

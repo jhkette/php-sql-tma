@@ -9,25 +9,27 @@ I'm using a try, catch block to connect and 'catch' exceptions if there are any.
 */
 class Database
 {
+    private $config;
+    protected $conn;
+    protected $errors;
     private $host;
     private $username;
     private $password;
     private $db;
-    public $conn;
-    protected $errors;
 
     // contruct function takes errors as parameter
-    public function __construct($errors)
+    public function __construct($errors, $config)
     {
         $this->errors = $errors;
+        $this->config = $config;
     }
     // connect function
     public function connect()
     {
-        $this->host = DB_HOST;
-        $this->username = DB_USER;
-        $this->password = DB_PASS;
-        $this->db = DB_NAME;
+        $this->host = $this->config['DB_HOST'];
+        $this->username = $this->config['DB_USER'];
+        $this->password = $this->config['DB_PASS'];
+        $this->db = $this->config['DB_NAME'];
 
         try {
             $this->conn = new mysqli(
@@ -36,8 +38,6 @@ class Database
                 $this->password,
                 $this->db
             );
-
-            return "connection succeeded";
         } catch (mysqli_sql_exception $ex) {
             echo $this->errors['error_db'];
             throw new Exception($ex);

@@ -1,6 +1,6 @@
 <?php
 
-$artists = new Controller($errors);
+$artists = new Controller($errors, $config);
 
 $artists->displayArtistHtml();
 

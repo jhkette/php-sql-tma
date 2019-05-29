@@ -1,10 +1,12 @@
 <?php 
 
 /* DB variables */
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'test3');
-define('DB_USER', 'root'); 
-define('DB_PASS', ''); 
+
+
+$config['DB_HOST'] = 'localhost';
+$config['DB_NAME'] = 'test3';
+$config['DB_USER'] = 'root';
+$config['DB_PASS'] = '';
 
 /* Set the default timezone ;*/
 date_default_timezone_set('Europe/London');
@@ -20,7 +22,7 @@ date_default_timezone_set('Europe/London');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 
-$config['app_dir'] = dirname(dirname(__FILE__));
+$dir['app_dir'] = dirname(dirname(__FILE__));
 
 /* Set defualt language */
 $lang = array(

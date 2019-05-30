@@ -14,13 +14,13 @@ class Database
     protected $conn;
     protected $language;
 
-    // contruct function takes errors as parameter
+    // contructor takes language and databse config as parameter
     public function __construct($language, $config)
     {
         $this->language = $language;
         $this->config = $config;
     }
-    // connect function
+    // connect method
     public function connect()
     {
         $this->host = $this->config['DB_HOST'];
@@ -40,7 +40,7 @@ class Database
             exit($this->conn->connect_error);
         }
     }
-
+    // close database connection
     public function disconnect()
     {
         if (isset($this->conn)) {

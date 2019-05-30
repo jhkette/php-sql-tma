@@ -7,7 +7,7 @@ require_once './includes/functions.php';
 by a seperate function which echoes the content.  */
  
 
-class Controller extends Model
+class Controlview extends Model
 {
     // Function to get index page information
     protected function getIndex()

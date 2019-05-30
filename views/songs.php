@@ -1,7 +1,7 @@
 <?php
 // Songs view
 
-$songs = new Controller($language, $config);
+$songs = new Controlview($language, $config);
 $songs->displaySongHtml();
 
 

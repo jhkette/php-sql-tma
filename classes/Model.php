@@ -24,7 +24,7 @@ class Model extends Database
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }
-            mysqli_free_result($results);
+            $results -> free();
             $this->disconnect();
             return $data;
         }
@@ -33,7 +33,7 @@ class Model extends Database
     protected function getArtists()
     {
         $this->connect();
-        $sql = "SELECT name, COUNT(title) AS number 
+        $sql = "SELECT names, COUNT(title) AS number 
         FROM artist
         JOIN song
         ON song.artist_id = artist.id
@@ -48,7 +48,7 @@ class Model extends Database
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }
-            mysqli_free_result($results);
+            $results -> free();
             $this->disconnect();
             return $data;
         }
@@ -72,7 +72,7 @@ class Model extends Database
             while ($row = $results->fetch_assoc()) {
                 $data[] = $row;
             }
-            mysqli_free_result($results);
+            $results -> free();
             $this->disconnect();
             return $data;
         }

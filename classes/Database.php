@@ -15,9 +15,9 @@ class Database
     protected $language;
 
     // contructor takes language and databse config as parameter
-    public function __construct($language, $config)
+    public function __construct($phrases, $config)
     {
-        $this->language = $language;
+        $this->phrases = $phrases;
         $this->config = $config;
     }
     // connect method

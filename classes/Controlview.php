@@ -1,7 +1,7 @@
 <?php
 require_once './includes/functions.php';
 
-/* The controller fetches data from the model and html from template files and stores it in a variable - content.
+/* The control view class fetches data from the model and html from template files and stores it in a variable - content.
   I use various different templates in each function. A helper function (in includes) is used to replace values certain html elements
   with data from the database. The data is also 'escaped' there. Finally the content is sent to the relevant view
 by a seperate function which echoes the content.  */
@@ -12,10 +12,11 @@ class Controlview extends Model
     // Function to get index page information
     protected function getIndex()
     {
+        
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]', '[+1+]');
-        $replacements = array('Home', 'Welcome', 'current');
+        $replacements = array($this->phrases['home_title'], $this->phrases['home_heading'], 'current');
         $content = '';
         $content .= printTemplate($values, $replacements, $header);
         $content .= $this->getSongArtistCount();
@@ -31,7 +32,7 @@ class Controlview extends Model
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]');
-        $replacements = array('404 error', '404 error');
+        $replacements = array($this->phrases['404_title'], $this->phrases['404_heading']);
         $content = '';
         $content .= printTemplate($values, $replacements, $header);
         $content .= $this->getSongArtistCount();
@@ -62,7 +63,7 @@ class Controlview extends Model
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]', '[+2+]');
-        $replacements = array('Songs', 'All Songs', 'current');
+        $replacements = array($this->phrases['songs_title'], $this->phrases['songs_heading'], 'current');
         $content = '';
         $content .= printTemplate($values, $replacements, $header);
 
@@ -84,7 +85,7 @@ class Controlview extends Model
         $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]', '[+3+]');
-        $replacements = array('Artists', 'All Artists', 'current');
+        $replacements =  array($this->phrases['artists_title'], $this->phrases['artists_heading'], 'current');
         $content = '';
         $content .= printTemplate($values, $replacements, $header);
 

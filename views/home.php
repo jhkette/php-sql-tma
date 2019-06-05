@@ -1,7 +1,7 @@
 <?php
 // Home view
 
-$home = new Controlview($language, $config);
+$home = new Controlview($phrases, $config);
 
 $home->displayIndex();
 

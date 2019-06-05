@@ -1,6 +1,6 @@
 <?php
 // Artists view
-$artists = new Controlview($language, $config);
+$artists = new Controlview($phrases, $config);
 
 $artists->displayArtistHtml();
 

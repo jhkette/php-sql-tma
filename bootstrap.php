@@ -10,6 +10,7 @@ function autoloader($class){
 // call autoloader function
 spl_autoload_register('autoloader');
 
-
+// This file is included on index.php. It loads all files that are needed for the 
+// application to run. 
 
 ?>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,22 @@
 <body>
     <header>
         <div class ="strip-black">
+        <form action="index.php" method="post">
+        <fieldset>
+                                     <div class="field">
+                                         <label for="language">Language</label>
+                                         <select name="language" id="language">
+                                             <!-- Save title value using cleanData -->
+                                             <option value="en">En</option>
+                                             <option value="fr" >Fr</option>
+                                            
+                                         </select>
+                                     </div>
+                                     <div class="field">
+                                         <input type="submit" name="submit" value="Submit" />
+                                     </div>
+</fieldset>                             
+        </form>
 
         </div>
         <div class="header-container">
@@ -34,4 +51,5 @@
     <main>
         <div class="container-heading">
             <h2>[+heading+]</h2>
-        </div>    
+        </div>   
+       

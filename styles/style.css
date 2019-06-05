@@ -145,7 +145,7 @@ strong {
 /* header elements */
 .strip-black {
   background: rgb(36, 36, 36);
-  height: 6rem;
+
 }
 
 .header-container {
@@ -238,4 +238,24 @@ footer {
   height: 15rem;
   border-top: 1px solid #c6ced6;
   background: rgb(36, 36, 36); /* Old browsers */
+}
+
+/* form styles for lang */
+
+form {
+  width: 80%;
+margin: auto;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+color: white;
+padding: 1.5rem 0;
+}
+
+input[type="submit"]{
+  background-color: white;
+  border: 0;
+  border-radius: .2rem;
+  padding: .4rem .7rem;
+  margin-left: 1rem;
 }

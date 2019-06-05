@@ -2,15 +2,13 @@
 if(!isset($_COOKIE['language'])) {
     $lang = array(
         "language" => "en"
-    );
-    
+    );  
 } else {
-   
-        if (($_COOKIE['language'] == 'fr') ||  ($_COOKIE['language'] == 'en')){ 
-            $lang = array(      
-        "language" => htmlentities($_COOKIE['language'])
-
-    );
-}
+    //   ensure cookie value is the value we have assigned to it - filter data 
+    if (($_COOKIE['language'] == 'fr') ||  ($_COOKIE['language'] == 'en')){ 
+        $lang = array( 
+             "language" => htmlentities($_COOKIE['language'])
+            );
+        }
 }
 ?>

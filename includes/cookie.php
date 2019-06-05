@@ -1,4 +1,6 @@
 <?php
+// checks for cookie - the default language is en. if cookit value is fr language is changed
+// to French
 if(!isset($_COOKIE['language'])) {
     $lang = array(
         "language" => "en"

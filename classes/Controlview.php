@@ -13,7 +13,7 @@ class Controlview extends Model
     protected function getIndex()
     {
         
-        $headerhtml = './templates/header.php';
+        $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]', '[+1+]');
         $replacements = array($this->phrases['home_title'], $this->phrases['home_heading'], 'current');
@@ -29,7 +29,7 @@ class Controlview extends Model
     }
     protected function get404()
     {
-        $headerhtml = './templates/header.php';
+        $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]');
         $replacements = array($this->phrases['404_title'], $this->phrases['404_heading']);
@@ -60,7 +60,7 @@ class Controlview extends Model
     protected function showAllSongs()
     {
         $alldata = $this->getAllSongs();
-        $headerhtml = './templates/header.php';
+        $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]', '[+2+]');
         $replacements = array($this->phrases['songs_title'], $this->phrases['songs_heading'], 'current');
@@ -82,7 +82,7 @@ class Controlview extends Model
     protected function getAllArtists()
     {
         $alldata = $this->getArtists();
-        $headerhtml = './templates/header.php';
+        $headerhtml = './templates/header.html';
         $header = file_get_contents($headerhtml);
         $values = array('[+title+]', '[+heading+]', '[+3+]');
         $replacements =  array($this->phrases['artists_title'], $this->phrases['artists_heading'], 'current');

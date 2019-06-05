@@ -33,7 +33,7 @@ class Model extends Database
     protected function getArtists()
     {
         $this->connect();
-        $sql = "SELECT names, COUNT(title) AS number 
+        $sql = "SELECT name, COUNT(title) AS number 
         FROM artist
         JOIN song
         ON song.artist_id = artist.id

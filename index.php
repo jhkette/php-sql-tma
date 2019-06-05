@@ -5,6 +5,7 @@ require_once './bootstrap.php';
 // Building Web Applications using MySQL and PHP
 
 // this handles form - which changes the language. Im using a cookie to store the language variable.
+// see cookie.php in includes/cookie.php
 if(isset($_POST['submit'])) {
     if(isset($_POST['language'])) {
         $language = htmlentities(trim($_POST['language']));
